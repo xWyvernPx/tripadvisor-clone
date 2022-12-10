@@ -1,16 +1,18 @@
 <script setup lang="ts">
-import { computed, onMounted, ref, watch } from "vue";
+import { computed, onMounted, ref, watch,Suspense } from "vue";
 import { useRoute, useRouter } from "vue-router";
-import { SearchIcon } from "vue-tabler-icons";
+import { SearchIcon } from "vue-tabler-icons";  
 import TextField from "../components/common/Form/TextField.vue";
 import PrimarySolidButton from "../components/common/Button/PrimarySolidButton.vue";
 import SearchResultSkeleton from "../components/SearchPage/SearchResultSkeleton.vue";
+import { KindOfSearch } from "../hooks/useSearchByTerm";
+import SearchResultCard from "../components/SearchPage/SearchResultCard.vue";
+import SearchResultList from "../components/SearchPage/SearchResultList.vue";
 const route = useRoute();
 const router = useRouter();
 interface PageProps {
   q?: string;
 }
-type KindOfSearch = "ALL" | "HOTEL" | "RESTAURANT";
 
 const kindOfSearch = ref<"ALL" | "HOTEL" | "RESTAURANT">("ALL");
 const kindOfSearchTabs: { name: string; type: KindOfSearch }[] = [
@@ -34,7 +36,9 @@ const isActiveTab = computed(
     typeName === currentType
 );
 </script>
-<template>
+<!-- <Suspense> -->
+
+  <template>
   <section class="heading">
     <div class="search-form">
       <form action="" @submit.prevent="() => router.replace('/search?q=' + q)">
@@ -65,9 +69,15 @@ const isActiveTab = computed(
   </section>
   <section class="search-result">
     <span>Search result for ""</span>
-    <search-result-skeleton></search-result-skeleton>
+    <template>
+      <search-result-skeleton></search-result-skeleton>
+    </template>
+   
+      <search-result-list></search-result-list>
+       
   </section>
 </template>
+<!-- </Suspense> -->
 <style scoped>
 .result-type a {
   position: relative;
@@ -116,6 +126,9 @@ section {
 }
 .search-result {
   margin-top: 2rem;
-  background-color: var(--gray-95);
+  /* background-color: var(--gray-95); */
+}
+.search-result span:first-child {
+  font-size: 2.0rem;
 }
 </style>

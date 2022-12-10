@@ -15,5 +15,8 @@ const routes: RouteRecordRaw[] = [
     component: SearchByTermPage,
     props: (route) => ({ q: route.query.q }),
   },
+  {
+    path: "/hotel/detail/:id",
+  },
 ];
 export default routes;

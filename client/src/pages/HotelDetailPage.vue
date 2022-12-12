@@ -1,12 +1,19 @@
 <script setup lang="ts">
 import { BrowserIcon, HeartIcon, LocationIcon, MailIcon, PencilIcon, PhoneCallIcon, ShareIcon } from 'vue-tabler-icons';
 import Rating from '../components/common/Rating/Rating.vue';
-
+import { useRoute } from 'vue-router';
+import { watch,onBeforeMount } from 'vue';
+import PhotoGallery from '../components/HotelDetail/PhotoGallery.vue';
+const route = useRoute();
+const id = route.params.id as string;
+onBeforeMount(()=>{
+    //TODO :  fetch
+})
 </script>
 <template>
 <div class="heading">
-    <h2 class="name"></h2>
-    <div class="judment-area">
+    <h2 class="name">Aria Hotel Budapest by Library Hotel Collection</h2>
+    <div class="judgement-area">
         <div class="rating-review">
             <Rating :rating="4.8"></Rating>
             <span class="reviews"> 2055 reviews</span>
@@ -37,7 +44,7 @@ import Rating from '../components/common/Rating/Rating.vue';
                 <PencilIcon/>
                 <span>Review</span>
             </span>
-            <span class="func">
+            <span class="func save" >
                 <HeartIcon/>
                 <span>Save</span>
             </span>
@@ -48,7 +55,66 @@ import Rating from '../components/common/Rating/Rating.vue';
         </div>
     </div>
 </div>
+<div class="gallery">
+    <PhotoGallery></PhotoGallery>
+</div>
 </template>
-<style>
+<style scoped>
+ .name {
+    font-size: 3.2rem;
+    margin-bottom:0.75rem;
+ }
+ .gallery {
+    max-width: 75%;
+    margin: 0 auto;
+    margin-top:3rem;
+ }
+ .judgement-area {
+    display: flex;
+    gap: 2rem;  
+    font-size: 1.4rem;
+    color : var(--gray-30);
+}
 
+.rating-review {
+    display : flex;
+    gap : 1rem;
+    font-size: 1.4rem;
+    color : var(--gray-30);
+    margin-bottom : 1rem;
+}
+ .info-area {
+    
+    display: flex;
+    justify-content: space-between;
+ }
+ .information {
+    display: flex;
+    gap : 2rem;
+ }
+ .information div {
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+    gap: 1rem;
+ }
+ .others-func {
+    display: flex;
+    gap : 1.25rem; 
+}
+
+ .func {
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+ }
+ .save:hover svg {
+    fill: var(--primary-danger-dark-mode);
+    color : var(--primary-danger-dark-mode)
+ }
+ a:hover {
+    text-decoration: underline;
+ }
 </style>

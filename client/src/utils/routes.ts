@@ -16,7 +16,8 @@ const routes: RouteRecordRaw[] = [
     props: (route) => ({ q: route.query.q }),
   },
   {
-    path: "/hotel/detail/:id",
+    path: "/accomodation/detail/:id",
+    component: () => import("../pages/HotelDetailPage.vue"),
   },
 ];
 export default routes;

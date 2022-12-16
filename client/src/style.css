@@ -365,6 +365,7 @@
   --modalZIndex: 15;
   --modalContentZIndex: 16;
   --loadingIndex: 1000;
+  --cartIndex: 12;
 }
 
 html,
@@ -518,4 +519,19 @@ button {
   cursor: pointer;
   outline: none;
   border: none;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

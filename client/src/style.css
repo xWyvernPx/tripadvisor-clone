@@ -3,6 +3,7 @@
   src: /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */ url("/font/TripSans-Medium.ttf")
     format("truetype"); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
 }
+
 :root {
   font-family: "Trip Sans", Inter, Avenir, Helvetica, Arial, sans-serif;
 
@@ -364,6 +365,7 @@
   --modalZIndex: 15;
   --modalContentZIndex: 16;
   --loadingIndex: 1000;
+  --cartIndex: 12;
 }
 
 html,
@@ -517,4 +519,19 @@ button {
   cursor: pointer;
   outline: none;
   border: none;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

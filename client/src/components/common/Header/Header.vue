@@ -13,6 +13,7 @@ import UserMenu from "./UserMenu.vue";
 import PrimarySolidBlackButton from "../Button/PrimarySolidBlackButton.vue";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
+import Cart from "../cart/Cart.vue";
 const headerSearch = ref(false);
 const userMenuShow = ref(false);
 const router = useRouter();
@@ -25,15 +26,7 @@ const onMenuClick = () => {
     window.removeEventListener("click", (e: MouseEvent) => {});
   });
 };
-const {
-  state: {
-    auth: { isLoggedIn, user },
-    modal: { isShow },
-  },
-
-  commit,
-} = useStore();
-console.log(isLoggedIn);
+const { state, commit } = useStore();
 const onLogoClick = () => {
   router.push("/");
 };
@@ -62,7 +55,7 @@ const onLogoClick = () => {
         <bell-icon></bell-icon>
         Alerts
       </router-link>
-      <div class="user-menu" @click="onMenuClick" v-if="isLoggedIn">
+      <div class="user-menu" @click="onMenuClick" v-if="state.auth.isLoggedIn">
         <div class="user-ava">
           <img src="https://source.unsplash.com/random" alt="" />
         </div>
@@ -73,11 +66,12 @@ const onLogoClick = () => {
           Login</primary-solid-black-button
         >
       </div>
-      <div class="cart">
+      <div class="cart-btn" @click="commit('toggleCart')">
         <shopping-cart-icon></shopping-cart-icon>
         <span>Cart</span>
       </div>
     </div>
+    <Cart />
   </header>
 </template>
 
@@ -112,7 +106,7 @@ const onLogoClick = () => {
   position: relative;
 }
 .nav a,
-.cart {
+.cart-btn {
   display: flex;
   cursor: pointer;
   align-items: center;
@@ -120,11 +114,11 @@ const onLogoClick = () => {
   border-radius: 3rem;
   gap: 0.5rem;
   color: var(--black);
-  font-size: 1.75rem;
+  font-size: 1.6rem;
   text-decoration: none;
 }
 .nav a:hover,
-.cart:hover {
+.cart-btn:hover {
   background-color: var(--clearCircularButtonFillHover);
 }
 .logo-wrapper {
@@ -151,5 +145,6 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 </style>

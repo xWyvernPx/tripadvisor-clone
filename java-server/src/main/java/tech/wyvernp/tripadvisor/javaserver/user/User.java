@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.context.annotation.Primary;
 
-
 @Entity
 @Table(name = "account")
 @Data()
@@ -13,7 +12,7 @@ import org.springframework.context.annotation.Primary;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id ;
+    private long id;
     @Column(length = 100)
     private String firstname;
     @Column(length = 100)
@@ -22,6 +21,6 @@ public class User {
 
     private String password;
     private String email;
-    private String phone ;
+    private String phone;
 
 }

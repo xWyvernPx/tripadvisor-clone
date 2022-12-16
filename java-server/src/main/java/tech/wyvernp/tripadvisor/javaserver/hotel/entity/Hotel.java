@@ -7,6 +7,7 @@ import jakarta.annotation.Generated;
 import jakarta.persistence.Entity;
 import jakarta.persistence.*;
 import lombok.*;
+import tech.wyvernp.tripadvisor.javaserver.common.entity.Location;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -51,4 +52,6 @@ public class Hotel {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "hotel_type_id" , nullable = false)
     private HotelType hotelType;
+    @OneToOne(mappedBy = "hotel")
+    private Location location;
 }

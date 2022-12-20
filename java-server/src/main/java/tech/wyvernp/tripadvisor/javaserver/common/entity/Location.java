@@ -9,7 +9,7 @@ import tech.wyvernp.tripadvisor.javaserver.hotel.entity.Hotel;
 @Entity
 @Table
 @Data
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class)
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,property = "id")
 public class Location {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

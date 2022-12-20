@@ -1,5 +1,6 @@
 package tech.wyvernp.tripadvisor.javaserver.hotel.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -7,6 +8,8 @@ import jakarta.annotation.Generated;
 import jakarta.persistence.Entity;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.BatchSize;
+import org.springframework.data.jpa.repository.Query;
 import tech.wyvernp.tripadvisor.javaserver.common.entity.Location;
 
 import java.util.ArrayList;
@@ -39,6 +42,7 @@ public class Hotel {
     @OneToMany(cascade=CascadeType.ALL,
     mappedBy = "hotel"
     )
+    @BatchSize(size = 20)
 //    @JsonManagedReference
     private Collection<HotelPhoto> photos = new ArrayList<>() ;
     public void setPhotos(List<HotelPhoto> photos){
@@ -51,6 +55,8 @@ public class Hotel {
     private Collection<HotelReview> reviews = new ArrayList<>();
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "hotel_type_id" , nullable = false)
+    @JsonBackReference
+
     private HotelType hotelType;
     @OneToOne(mappedBy = "hotel")
     private Location location;

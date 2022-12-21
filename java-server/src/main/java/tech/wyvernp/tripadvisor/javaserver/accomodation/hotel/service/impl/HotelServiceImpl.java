@@ -1,12 +1,12 @@
-package tech.wyvernp.tripadvisor.javaserver.hotel.service.impl;
+package tech.wyvernp.tripadvisor.javaserver.accomodation.hotel.service.impl;
 
-import tech.wyvernp.tripadvisor.javaserver.hotel.entity.Hotel;
-import tech.wyvernp.tripadvisor.javaserver.hotel.repository.HotelRepository;
+import tech.wyvernp.tripadvisor.javaserver.accomodation.hotel.entity.Hotel;
+import tech.wyvernp.tripadvisor.javaserver.accomodation.hotel.repository.HotelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import tech.wyvernp.tripadvisor.javaserver.hotel.service.HotelService;
+import tech.wyvernp.tripadvisor.javaserver.accomodation.hotel.service.HotelService;
 
 import java.util.List;
 
@@ -24,8 +24,10 @@ public class HotelServiceImpl implements HotelService {
 
     @Override
     public Page<Hotel> searchHotelsWithName(String term) {
-        return hotelRepository.findAllByNameContainingIgnoreCase(term,this.pageable);
+//        return hotelRepository.findAllByNameContainingIgnoreCase(term,this.pageable);
+    return null;
     }
+
 
     @Override
     public HotelService setPagination(Pageable pageable) {

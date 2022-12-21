@@ -5,11 +5,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
-import tech.wyvernp.tripadvisor.javaserver.hotel.entity.Hotel;
-import tech.wyvernp.tripadvisor.javaserver.hotel.entity.HotelPhoto;
-import tech.wyvernp.tripadvisor.javaserver.hotel.repository.HotelRepository;
-
-import java.util.Arrays;
+import tech.wyvernp.tripadvisor.javaserver.accomodation.hotel.repository.HotelRepository;
 
 @SpringBootApplication
         (exclude = {SecurityAutoConfiguration.class } )

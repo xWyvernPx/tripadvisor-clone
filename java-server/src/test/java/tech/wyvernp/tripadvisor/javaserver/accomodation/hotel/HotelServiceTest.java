@@ -2,19 +2,13 @@ package tech.wyvernp.tripadvisor.javaserver.accomodation.hotel;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestComponent;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.test.context.junit4.SpringRunner;
-import tech.wyvernp.tripadvisor.javaserver.hotel.entity.Hotel;
-import tech.wyvernp.tripadvisor.javaserver.hotel.repository.HotelRepository;
-import tech.wyvernp.tripadvisor.javaserver.hotel.service.HotelService;
-
-import java.util.ArrayList;
+import tech.wyvernp.tripadvisor.javaserver.accomodation.hotel.repository.HotelRepository;
+import tech.wyvernp.tripadvisor.javaserver.accomodation.hotel.service.HotelService;
 
 @TestComponent
 @SpringBootTest

@@ -1,7 +1,7 @@
-package tech.wyvernp.tripadvisor.javaserver.hotel.controller;
+package tech.wyvernp.tripadvisor.javaserver.accomodation.hotel.controller;
 
-import tech.wyvernp.tripadvisor.javaserver.hotel.entity.Hotel;
-import tech.wyvernp.tripadvisor.javaserver.hotel.repository.HotelRepository;
+import tech.wyvernp.tripadvisor.javaserver.accomodation.hotel.entity.Hotel;
+import tech.wyvernp.tripadvisor.javaserver.accomodation.hotel.repository.HotelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.support.PagedListHolder;
 import org.springframework.beans.support.SortDefinition;
@@ -12,7 +12,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tech.wyvernp.tripadvisor.javaserver.dto.SimplePagination;
-import tech.wyvernp.tripadvisor.javaserver.hotel.service.HotelService;
+import tech.wyvernp.tripadvisor.javaserver.accomodation.hotel.service.HotelService;
 
 import java.util.List;
 
@@ -41,7 +41,7 @@ public class HotelController {
     public ResponseEntity<Page<Hotel>> findHotelsByName(@RequestBody SimplePagination pagi,@RequestParam String q) {
 
         Pageable pageable =  PageRequest.of(pagi.getPage(), pagi.getLimit(),Sort.by(pagi.getDirection(),pagi.getSort())) ;
-
+/*
         var results = hotelRepository.findHotelsByNameContainingIgnoreCase(q);
         PagedListHolder<Hotel> pageResult = new PagedListHolder<>(results);
         pageResult.setPage( pagi.getPage());
@@ -62,6 +62,7 @@ public class HotelController {
                 return true;
             }
         });
-        return ResponseEntity.ok(hotelRepository.findAllByNameContainingIgnoreCase(q,pageable));
+        return ResponseEntity.ok(hotelRepository.findAllByNameContainingIgnoreCase(q,pageable)); */
+        return ResponseEntity.ok(null);
     }
 }

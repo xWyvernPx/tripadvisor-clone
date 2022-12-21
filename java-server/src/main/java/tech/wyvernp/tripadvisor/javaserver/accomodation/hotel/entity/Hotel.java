@@ -1,4 +1,4 @@
-package tech.wyvernp.tripadvisor.javaserver.hotel.entity;
+package tech.wyvernp.tripadvisor.javaserver.accomodation.hotel.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
@@ -7,6 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.BatchSize;
+import tech.wyvernp.tripadvisor.javaserver.accomodation.common.entity.Accomodation;
 import tech.wyvernp.tripadvisor.javaserver.common.entity.Location;
 
 import java.util.ArrayList;
@@ -24,12 +25,8 @@ public class Hotel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column
-    private String name;
-    @Column
     private String thumbnail;
 
-    @Column(columnDefinition = "TEXT")
-    private String description;
     @Column
     private String hotelClass;
     @Column
@@ -55,6 +52,13 @@ public class Hotel {
     @JsonBackReference
 
     private HotelType hotelType;
-    @OneToOne(mappedBy = "hotel")
-    private Location location;
+
+    @OneToOne
+    @JoinColumn(name = "accomdation_id",nullable = false,unique = true)
+    private Accomodation accomodation;
+
+    @OneToMany(mappedBy = "hotel")
+    private Collection<HotelRoom> rooms = new ArrayList<>();
+
+
 }

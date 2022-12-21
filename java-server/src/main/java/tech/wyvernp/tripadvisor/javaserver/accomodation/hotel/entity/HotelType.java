@@ -1,4 +1,4 @@
-package tech.wyvernp.tripadvisor.javaserver.hotel.entity;
+package tech.wyvernp.tripadvisor.javaserver.accomodation.hotel.entity;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;

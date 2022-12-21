@@ -1,6 +1,6 @@
-package tech.wyvernp.tripadvisor.javaserver.hotel.service;
+package tech.wyvernp.tripadvisor.javaserver.accomodation.hotel.service;
 
-import tech.wyvernp.tripadvisor.javaserver.hotel.entity.Hotel;
+import tech.wyvernp.tripadvisor.javaserver.accomodation.hotel.entity.Hotel;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

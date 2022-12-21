@@ -4,7 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.Data;
-import tech.wyvernp.tripadvisor.javaserver.hotel.entity.Hotel;
+import tech.wyvernp.tripadvisor.javaserver.accomodation.common.entity.Accomodation;
+import tech.wyvernp.tripadvisor.javaserver.accomodation.hotel.entity.Hotel;
 
 @Entity
 @Table
@@ -55,6 +56,6 @@ private String state;
     @Column
     private double mapNorth;
     @OneToOne
-    @JoinColumn(name = "hotel_id")
-    private Hotel hotel;
+    @JoinColumn(name = "accomodation_id",unique = true)
+    private Accomodation accomodation;
 }

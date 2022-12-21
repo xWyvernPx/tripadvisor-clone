@@ -1,11 +1,11 @@
 package tech.wyvernp.tripadvisor.javaserver.hotel.service.impl;
 
+import tech.wyvernp.tripadvisor.javaserver.hotel.entity.Hotel;
+import tech.wyvernp.tripadvisor.javaserver.hotel.repository.HotelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import tech.wyvernp.tripadvisor.javaserver.hotel.entity.Hotel;
-import tech.wyvernp.tripadvisor.javaserver.hotel.repository.HotelRepository;
 import tech.wyvernp.tripadvisor.javaserver.hotel.service.HotelService;
 
 import java.util.List;

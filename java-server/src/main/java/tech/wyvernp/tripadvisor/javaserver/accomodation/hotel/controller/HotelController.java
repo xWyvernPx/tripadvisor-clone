@@ -1,24 +1,19 @@
 package tech.wyvernp.tripadvisor.javaserver.hotel.controller;
 
+import tech.wyvernp.tripadvisor.javaserver.hotel.entity.Hotel;
+import tech.wyvernp.tripadvisor.javaserver.hotel.repository.HotelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.support.PagedListHolder;
 import org.springframework.beans.support.SortDefinition;
-import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.data.repository.Repository;
-import org.springframework.data.repository.query.Param;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tech.wyvernp.tripadvisor.javaserver.dto.SimplePagination;
-import tech.wyvernp.tripadvisor.javaserver.hotel.entity.Hotel;
-import tech.wyvernp.tripadvisor.javaserver.hotel.repository.HotelRepository;
 import tech.wyvernp.tripadvisor.javaserver.hotel.service.HotelService;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @RestController
